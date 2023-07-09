@@ -21,10 +21,85 @@ struct cl_args_s
     uint8_t *l2_out2;
 };
 
+
+
+/* Global variable */
 PI_L2 static struct cl_args_s cl_arg;
 uint8_t *res_add_check;
 uint8_t *res_mult_check;
+uint8_t filter[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
 
+/* Functions declarations */
+uint8_t** convolution(uint8_t** input,uint32_t size);
+uint8_t** initMatrice(uint32_t size,uint8_t value);
+uint8_t** addMatrices(uint8_t** matrix1, uint8_t** matrix2, uint32_t raw, uint32_t colums);
+uint8_t** list_to_matrice(uint32_t raw, uint32_t colums, uint8_t* buffer);
+uint8_t* matrice_to_list(uint32_t raw, uint32_t colums, uint8_t** buffer);
+uint8_t** addMatrices(uint8_t** matrix1, uint8_t** matrix2, uint32_t raw, uint32_t colums);
+void printMatrix(uint8_t** matrix, uint32_t size);
+uint8_t** multiplySquareMatrices(uint8_t** matrix1, uint8_t** matrix2, uint32_t size);
+
+uint8_t** convolution(uint8_t** input,uint32_t size) {
+    uint32_t i, j, k, l;
+    uint8_t sum;
+    /* Init Array */
+    input = initMatrice(size,1);
+    printf(" Matrice Before Convolution \n\r");
+    printMatrix(input,size);
+
+    uint8_t** result = (uint8_t **) pi_l2_malloc(size);
+    if (result == NULL)
+    {
+        printf("alloc failed !\n");
+        pmsis_exit(-2);
+    }
+
+    for (i = 0; i < 3; i++) {
+        result[i] = (uint8_t *) pi_l2_malloc(size);
+        if (result[i] == NULL)
+        {
+            printf("alloc failed !\n");
+            pmsis_exit(-2);
+        }
+        for (j = 0; j < 3; j++) {
+            sum = 0;
+
+            for (k = 0; k < 3; k++) {
+                for (l = 0; l < 3; l++) {
+                    sum += input[i + k][j + l] * filter[k * 3 + l];
+                }
+            }
+
+            result[i][j] = sum;
+        }
+    }
+    return result;
+}
+
+
+uint8_t** initMatrice(uint32_t size,uint8_t value) {
+    
+    uint8_t** result = (uint8_t **) pi_l2_malloc(size);
+    if (result == NULL)
+    {
+        printf("alloc failed !\n");
+        pmsis_exit(-2);
+    }
+    for (uint32_t i = 0; i < size; i++) {
+
+        result[i] = (uint8_t *) pi_l2_malloc(size);
+        if (result[i] == NULL)
+        {
+            printf("alloc failed !\n");
+            pmsis_exit(-2);
+        }
+        for (uint32_t j = 0; j < size; j++) {
+            result[i][j] = value;
+        }
+    }
+    
+    return result;
+}
 uint8_t** list_to_matrice(uint32_t raw, uint32_t colums, uint8_t* buffer){
 
     struct pi_device cluster_dev;
@@ -107,6 +182,7 @@ void printMatrix(uint8_t** matrix, uint32_t size) {
         printf("\n");
     }
 }
+
 /* Task executed by cluster cores. */
 void cluster_dma(void *arg)
 {
@@ -382,8 +458,19 @@ void test_cluster_dma(void)
         printf("\n");
     }
 
+    /* Verification convolution matrice operation */
+    printf("\n");
+    printf("************** Verification convolution matrice  ************** \n\r");
+    // uint8_t** l2_input = initMatrice(3,1);
+    // uint8_t** l2_output = initMatrice(3,0);
+    uint8_t** l2_input = NULL;
+    
+    uint8_t** l2_output = convolution(l2_input,3);
+    printf(" Matrice After Convolution \n\r");
+    printMatrix(l2_output,3);
+    printf("End of convolution matrice operation \n\r");
+    printf("\n");
 
-    pi_l2_free(task, sizeof(struct pi_cluster_task));
     pi_cl_l1_free(&cluster_dev, l1_buffer, buffer_size);
 
     printf("Close cluster after end of computation.\n");
@@ -393,6 +480,9 @@ void test_cluster_dma(void)
     pi_l2_free(l2_out2, buffer_size);
     pi_l2_free(l2_in, buffer_size);
     pi_l2_free(l2_in2, buffer_size);
+    pi_l2_free(task, sizeof(struct pi_cluster_task));
+
+
 
     pmsis_exit(errors);
 }
