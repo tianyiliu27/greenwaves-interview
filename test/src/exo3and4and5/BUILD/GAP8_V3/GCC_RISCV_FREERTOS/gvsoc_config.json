@@ -122,7 +122,7 @@
   },
   "gapy": {
     "verbose": false,
-    "work_dir": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS"
+    "work_dir": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS"
   },
   "openocd": {
     "remote": {
@@ -144,7 +144,7 @@
     },
     "platform": "gvsoc",
     "wsl": null,
-    "boot-loader": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/test"
+    "boot-loader": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/test"
   },
   "vsim": {
     "path_envvar": "PULP_RTL_GAP8_REVC"
@@ -3952,7 +3952,7 @@
               "map_size": "0x00002000",
               "vp_class": "memory/memory",
               "vp_component": "memory.memory_impl",
-              "stim_file": "/home/osboxes/test-C/gap_sdk/install/workstation/python/pulp/chips/gap8_revc/rom.bin",
+              "stim_file": "/home/osboxes/test-C/greenwaves-interview/test/gap_sdk/install/workstation/python/pulp/chips/gap8_revc/rom.bin",
               "vp_ports": [
                 "input"
               ]
@@ -12883,23 +12883,23 @@
                 "type": "readfs",
                 "enabled": false,
                 "files": [],
-                "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.readfs.img"
+                "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.readfs.img"
               },
               "hostfs": {
                 "type": "hostfs",
                 "files": [],
-                "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.hostfs.img"
+                "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.hostfs.img"
               },
               "lfs": {
                 "type": "lfs",
                 "enabled": false,
                 "root_dir": null,
-                "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.lfs.img"
+                "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.lfs.img"
               }
             },
-            "boot-loader": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/test",
+            "boot-loader": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/test",
             "gen_image": true,
-            "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.img",
+            "image": "/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/target.board.devices.flash.img",
             "flash": true
           },
           "doc_rst": "devices/hyperflash.rst",

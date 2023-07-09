@@ -1,4 +1,4 @@
-/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/copydata.o: \
+/home/osboxes/test-C/greenwaves-interview/test/src/exo3and4and5/BUILD/GAP8_V3/GCC_RISCV_FREERTOS/copydata.o: \
  copydata.c \
  /home/osboxes/test-C/gap_sdk/rtos/freeRTOS/vendors/gwt/pmsis/include/pmsis.h \
  /usr/lib/gap_riscv_toolchain/lib/gcc/riscv32-unknown-elf/7.1.1/include/stddef.h \

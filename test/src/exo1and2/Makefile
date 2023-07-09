@@ -13,4 +13,4 @@ PMSIS_OS = freertos
 # Custom linker
 APP_LINK_SCRIPT  =
 
-include /home/osboxes/test-C/gap_sdk/utils/rules/pmsis_rules.mk
+include /home/osboxes/test-C/greenwaves-interview/test/gap_sdk/utils/rules/pmsis_rules.mk
