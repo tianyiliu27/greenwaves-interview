@@ -35,7 +35,7 @@ exo1and2 resume :
 	Test success !
 
 
-exo3and4and5 resume:
+exo3and5 resume:
 	Description
 	-----------
 
@@ -45,10 +45,6 @@ exo3and4and5 resume:
 		   cluster and send the result matrices from the L1 to L2:
 		    - Addition of the 2 matrices
 		    - Multiplication of the 2 matrices
-		4. (new graduate) Extend the previous `launch.sh` script to accept a matrix
-		   size parameter.
-		   For example, entering `./launch.sh -s 128` will select a matrix size of
-		   128x128. Use a default value of 64 when size is not specified.
 		5. (new graduate) Using the result of the matrices multiplication above, do a
 		   convolution of this matrix with the filter below:
 			Try 2D dma copy : 
