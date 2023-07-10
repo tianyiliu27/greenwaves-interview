@@ -1,0 +1,3 @@
+[submodule "gap_sdk"]
+	path = gap_sdk
+	url = https://github.com/GreenWaves-Technologies/gap_sdk
