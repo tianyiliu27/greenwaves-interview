@@ -106,12 +106,22 @@ exo3and5 resume:
 		In L1 : Transform 2D Array into List
 		Using 1D DMA transfer from L1 to L2
 
+Exo4 : 
+		4. (new graduate) Extend the previous `launch.sh` script to accept a matrix
+   size parameter.
+   For example, entering `./launch.sh -s 128` will select a matrix size of
+   128x128. Use a default value of 64 when size is not specified.
+	
+	I didn't have time to do this one ... But my idea would be : 
+		using the script to connect with the Makefile and using int main(int argc, int** argv)
 
-To do :
 
- 		4. (new graduate) Extend the previous `launch.sh` script to accept a matrix
-	   size parameter.
-	   For example, entering `./launch.sh -s 128` will select a matrix size of
-	   128x128. Use a default value of 64 when size is not specified.
 
 	   6. (experienced) Optimize all previous operations as efficiently as possible.
+
+	   I didn't have time, but for the copy memory, I would like to use align variable : 
+	   __attribute__((aligned(n))) to get the same 
+
+	   Enable Compiler Optimization 
+
+	   I use dma to do copy which is a kind of optimization. Because it offload CPU charge and decreases power consumption
